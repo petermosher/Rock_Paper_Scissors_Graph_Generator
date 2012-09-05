@@ -1,0 +1,3 @@
+run from command line.
+oh and if you try to create one size 51 or something it will take a really long time.
+The dot file can be computed instantly, it is the graphical component that takes so much time.

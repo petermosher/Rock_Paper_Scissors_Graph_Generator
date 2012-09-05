@@ -1,0 +1,13 @@
+install ruby
+install graphviz for windows
+
+earlier I was trying: 
+graph.write_to_graphic_file('jpg','graph')
+and it would never work
+
+you have to install everything 
+
+
+
++1 % total
++3 % total
