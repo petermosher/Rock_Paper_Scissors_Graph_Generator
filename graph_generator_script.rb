@@ -77,7 +77,7 @@ out_array
 
 out_array
 types = types.to_s
-outputname = "#{types} types"
+outputname = "Ntypes"
 dg.write_to_graphic_file('jpg', outputname)
 
 
