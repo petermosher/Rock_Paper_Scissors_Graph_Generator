@@ -13,25 +13,14 @@
   types = gets.chomp
   types = Integer(types)
 
-
-  dg=RGL::DirectedAdjacencyGraph[1,2 ,2,3 ,3,1]
-  # Use DOT to visualize this graph:
-  require 'rgl/dot'
-  dg.write_to_graphic_file('jpg','3types')
-
-  #dg=RGL::DirectedAdjacencyGraph[1,2, 1,4, 2,3, 2,5, 3,4, 3,1, 4,5, 4,2, 5,1, 5,3]
-  dg=RGL::DirectedAdjacencyGraph[1,2,1,4,2,3,2,5,3,4,3,1,4,5,4,2,5,1,5,3]
-  dg.write_to_graphic_file('jpg','5types')
-  #system("dot -Tps graph.dot -o output.ps")
-  #system("dot -Tsvg graph.dot >output.svg")
-
-
+#Need an empty Directed Graph
 dg=RGL::DirectedAdjacencyGraph[]
 i = 1
+
+#Limit is the number of Odd numbers, not the maximal count
 odd_limit = (types/2)
-#a=[]   this initializes the array
-#a<<5   this appends
-#a<<6   this also appends
+
+#Creates empty odd list
 out_array=[]
 odds_array =[]
 
@@ -48,17 +37,10 @@ end
 i = 1
 puts odds_array
 
-#
-#loop over all
-	#loop over odds
-		#append current number, append + current odd
 
-#odd_limit.each { |odd|
-
+#Generates the connections of the graph (which ones are linked)
 for one in 1..types
 	for odd in odds_array
-		#for odd in 1..odd_limit
-		#var1
 		var1 = one
 		var2 = (one+odd)%(types)
 		if var2 == 0
@@ -68,15 +50,14 @@ for one in 1..types
 		out_array=out_array<<var1
 		out_array=out_array<<var2
 
-		dg.add_edge(var1,var2)
-		#add to empty graph (var1, var2)
-	
+		dg.add_edge(var1,var2)	
 	end
 end
-out_array
 
-out_array
+#TODO later, was trying to get the name to print out Ntypes
+#example: lets say I had 13 nodes. I want the name to be "13 types".
 types = types.to_s
+
 outputname = "Ntypes"
 dg.write_to_graphic_file('jpg', outputname)
 
